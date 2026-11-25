@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Глоссарий · Дорожный патруль</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="chrome-top"></div>
+<main class="wrap">
+
+  <div class="pagehead">
+    <p class="eyebrow">Справочник</p>
+    <h1>Глоссарий</h1>
+    <p class="lead">Знаки, сигналы светофора и термины из заданий. Найди нужное по слову или отфильтруй по теме.</p>
+  </div>
+
+  <div class="tools" style="margin-top:20px">
+    <div class="grow">
+      <label class="sr" for="q">Поиск</label>
+      <input id="q" type="search" placeholder="Поиск: например, фликер или СПМ" autocomplete="off">
+    </div>
+    <div class="chips" id="kind" role="group" aria-label="Что показывать"></div>
+  </div>
+
+  <section class="sec" id="signs-sec">
+    <h2>Знаки и сигналы</h2>
+    <div class="chips" id="grp" role="group" aria-label="Группа знаков"></div>
+    <div class="signgrid" id="signs"></div>
+  </section>
+
+  <section class="sec" id="terms-sec">
+    <h2>Термины</h2>
+    <dl class="terms" id="terms"></dl>
+  </section>
+
+  <div class="empty" id="none" hidden>Ничего не найдено. Попробуй другое слово или сбрось фильтры.</div>
+
+</main>
+<div id="chrome-bottom"></div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<script src="art.js"></script>
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="glossary.js"></script>
+</body>
+</html>

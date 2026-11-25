@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Алгоритмы и исполнители</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { overflow-y: auto; height: auto; min-height: 100%; }
+  .home { max-width: 1080px; margin: 0 auto; padding-block: 18px 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .home-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 22px; }
+  .home-top .tag { font: 500 .78rem var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--acc-ink); }
+  .hero { display: grid; gap: 22px; padding: clamp(8px, 3vw, 28px) 0 26px; }
+  .hero h1 { font-size: clamp(2.2rem, 7.4vw, 5rem); line-height: 1.02; margin: 0; max-width: 11em; }
+  .hero h1 span { color: var(--acc-ink); }
+  .hero p { max-width: 58ch; font-size: 1.12rem; color: var(--muted); margin: 0; }
+  .pipe { display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin-top: 4px; }
+  .pipe .n { padding: 12px 20px; font-weight: 700; background: var(--surface); border: 3px solid var(--line); animation: lit 6s infinite; animation-delay: calc(var(--i) * 1.2s); }
+  .pipe .n:nth-child(1) { border-radius: 999px; }
+  .pipe .n.cond { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); padding: 22px 32px; border: 0; background: var(--surface); }
+  .pipe .n.io { clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); padding-inline: 30px; border: 0; }
+  .pipe .n.end { border-radius: 999px; }
+  .pipe .ar { width: 34px; height: 3px; background: var(--line); position: relative; }
+  .pipe .ar::after { content: ""; position: absolute; right: -2px; top: -5px; border: 6px solid transparent; border-left-color: var(--line); border-right: 0; }
+  @keyframes lit { 0%, 18%, 100% { background: var(--surface); border-color: var(--line); color: var(--ink); } 4%, 14% { background: var(--acc); border-color: var(--acc); color: var(--on-acc); } }
+  @media (max-width: 720px) { .pipe { gap: 6px; } .pipe .ar { width: 18px; } .pipe .n { padding: 9px 14px; font-size: .9rem; } .pipe .n.cond { padding: 16px 22px; } }
+  .sec-h { font: 700 .8rem var(--f-display); letter-spacing: .1em; text-transform: uppercase; margin: 10px 0 14px; color: var(--muted); }
+  .lessons { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); }
+  .les { position: relative; display: grid; gap: 12px; align-content: start; padding: 20px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; color: var(--ink); box-shadow: var(--shadow); transition: transform .25s cubic-bezier(.2, .8, .2, 1), border-color .2s; min-width: 0; --acc-ink: color-mix(in srgb, var(--acc) 62%, var(--ink)); }
+  .les:hover { transform: translateY(-6px) rotate(-.5deg); border-color: var(--acc); }
+  .les::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; border-radius: 22px 22px 0 0; background: var(--acc); }
+  .les .num { font: 700 2.6rem var(--f-display); line-height: 1; color: var(--acc-ink); letter-spacing: -.02em; }
+  .les .num small { font-size: .9rem; color: var(--muted); font-weight: 500; letter-spacing: 0; }
+  .les h2 { font-size: 1.12rem; line-height: 1.25; margin: 0; }
+  .les .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .les .tags span { font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: color-mix(in srgb, var(--acc) 14%, var(--surface)); border: 1px solid color-mix(in srgb, var(--acc) 35%, var(--line)); }
+  .les .go { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 4px; font-weight: 700; }
+  .les .go b { display: inline-flex; padding: 8px 16px; border-radius: 12px; background: var(--acc); color: var(--on-acc); }
+  .les .prog { font: 500 .8rem var(--f-mono); color: var(--muted); }
+  .les .prog.ok { color: var(--good); }
+  .les.wide { grid-column: 1 / -1; grid-template-columns: 1fr auto; align-items: center; }
+  @media (max-width: 640px) { .les.wide { grid-template-columns: 1fr; } }
+  .how { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 30px; }
+  .how div { padding: 14px 16px; border-radius: 16px; border: 1px dashed var(--line); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+  .how b { display: block; margin-bottom: 4px; font-family: var(--f-display); font-size: .86rem; }
+  .how span { color: var(--muted); font-size: .94rem; }
+  kbd { font: 700 .8rem var(--f-mono); padding: 1px 7px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); }
+</style>
+<div class="home">
+  <div class="home-top">
+    <span class="tag">Информатика · 6 класс</span>
+    <button class="icon-btn" id="theme" aria-label="Сменить тему" title="Светлая / тёмная тема">◐</button>
+  </div>
+  <section class="hero">
+    <h1 class="st">Алгоритмы и <span>исполнители</span></h1>
+    <p class="st" style="--i:1">Глава в пяти занятиях: понятие алгоритма, способы записи, среда программирования, компьютерный исполнитель, отладка и вспомогательные алгоритмы. В каждом занятии есть тест, кроссворд и игры.</p>
+    <div class="pipe st" style="--i:2" aria-hidden="true">
+      <div class="n" style="--i:0">Задача</div><div class="ar"></div>
+      <div class="n io" style="--i:1">Алгоритм</div><div class="ar"></div>
+      <div class="n cond" style="--i:2">Понятно?</div><div class="ar"></div>
+      <div class="n" style="--i:3">Исполнитель</div><div class="ar"></div>
+      <div class="n end" style="--i:4">Результат</div>
+    </div>
+  </section>
+
+  <h2 class="sec-h">Занятия главы</h2>
+  <nav class="lessons" id="lessons" aria-label="Занятия"></nav>
+
+  <a class="les st wide" href="methodics.html" style="--acc:#14214B;--on-acc:#fff;--i:10">
+    <div><div class="num"><small>Для учителя</small></div><h2>Учебно-методический блок: видеоуроки по каждому занятию</h2></div>
+    <div><div class="go"><span class="prog">Видео на YouTube и официальные материалы</span><b>Открыть →</b></div></div>
+  </a>
+
+  <div class="how">
+    <div><b>Листай</b><span>Кнопки «Назад» и «Дальше», стрелки <kbd>←</kbd> <kbd>→</kbd> на клавиатуре или свайп на телефоне.</span></div>
+    <div><b>Переходи по ссылкам</b><span>Кнопка ☰ открывает список слайдов. Оттуда можно сразу перейти к тесту или кроссворду.</span></div>
+    <div><b>Тема оформления</b><span>Кнопка ◐ переключает светлую и тёмную тему. Результаты сохраняются в этом браузере.</span></div>
+  </div>
+</div>
+<script>
+(function () {
+  var LES = [
+    { id: 'l25', href: 'l25.html', n: '25', t: 'Понятие алгоритма. Исполнитель алгоритма', acc: '#3A5BFF', on: '#FFFFFF', tags: ['Свойства алгоритма', 'Тест', 'Кроссворд', 'Игры'] },
+    { id: 'l26', href: 'l26.html', n: '26–27', t: 'Способы записи алгоритмов. Среда программирования', acc: '#E23D80', on: '#FFFFFF', tags: ['Блок-схемы', 'Окно среды', 'Тест', 'Кроссворд'] },
+    { id: 'l28', href: 'l28.html', n: '28', t: 'Компьютерный исполнитель', acc: '#0E9F85', on: '#FFFFFF', tags: ['Исполнитель на поле', 'Тест', 'Кроссворд'] },
+    { id: 'l29', href: 'l29.html', n: '29–30', t: 'Изучение и изменение готовых программ', acc: '#FFB800', on: '#1B1500', tags: ['Отладка', 'Найди ошибку', 'Тест', 'Кроссворд'] },
+    { id: 'l31', href: 'l31.html', n: '31–32', t: 'Использование вспомогательных алгоритмов. Составление алгоритмов', acc: '#7A4DFF', on: '#FFFFFF', tags: ['Вспомогательный алгоритм', 'Исполнитель', 'Тест', 'Кроссворд'] },
+    { id: 'final', href: 'final.html', n: 'Итог', t: 'Итоговое повторение главы', acc: '#14214B', on: '#FFFFFF', tags: ['Большой тест', 'Финальные задачи', 'Кроссворд'], wide: true }
+  ];
+  var wrap = document.getElementById('lessons');
+  LES.forEach(function (l, i) {
+    var st = {}; try { st = JSON.parse(localStorage.getItem('algo-' + l.id)) || {}; } catch (e) { }
+    var a = document.createElement('a');
+    a.className = 'les st' + (l.wide ? ' wide' : ''); a.href = l.href; a.style.setProperty('--i', i + 3);
+    a.style.setProperty('--acc', l.id === 'final' ? 'var(--ink)' : l.acc); a.style.setProperty('--on-acc', l.id === 'final' ? 'var(--bg)' : l.on);
+    var prog = st.max ? ('Баллы: ' + st.score + ' из ' + st.max + (st.done ? ' · пройдено' : '')) : 'Ещё не начато';
+    a.innerHTML = '<div><div class="num"></div><h2></h2></div><div><div class="tags"></div><div class="go"><span class="prog' + (st.done ? ' ok' : '') + '"></span><b>Открыть →</b></div></div>';
+    a.querySelector('.num').innerHTML = l.id === 'final' ? 'Итог' : n(l.n);
+    a.querySelector('h2').textContent = l.t;
+    l.tags.forEach(function (t) { var s = document.createElement('span'); s.textContent = t; a.querySelector('.tags').appendChild(s); });
+    a.querySelector('.prog').textContent = prog;
+    wrap.appendChild(a);
+  });
+  function n(v) { return '<small>Занятие </small>' + v; }
+  document.getElementById('theme').addEventListener('click', function () {
+    var d = document.documentElement.dataset.theme, dark = d ? d === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+  });
+})();
+</script>

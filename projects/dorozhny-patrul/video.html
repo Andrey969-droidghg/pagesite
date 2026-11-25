@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Видео · Дорожный патруль</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="chrome-top"></div>
+<main class="wrap">
+
+  <div class="pagehead">
+    <p class="eyebrow">Видеоматериалы</p>
+    <h1>Видео по темам</h1>
+    <p class="lead">К каждой теме есть вопросы для обсуждения после просмотра, готовый поиск роликов и место для вашего файла или ссылки.</p>
+  </div>
+
+  <details class="howto" style="margin-top:18px">
+    <summary>О роликах и как добавить свой</summary>
+    <ul>
+      <li><b>Что уже есть.</b> В папке <code>videos</code> лежат пять анимированных роликов (<code>t1.mp4</code> … <code>t5.mp4</code>) по 40–45 секунд. Они нарисованы для этого занятия, идут с субтитрами и без озвучки, поэтому рассказывайте тему сами. Играют без интернета.</li>
+      <li><b>Замена.</b> Чтобы показать свой ролик, положите файл в папку <code>videos</code> под тем же именем. Он заменит анимацию в карточке этой темы.</li>
+      <li><b>Ссылка.</b> Вставьте адрес ролика в поле карточки и нажмите «Сохранить ссылку». Появится кнопка, которая открывает ролик в новой вкладке. Ссылка хранится в браузере этого компьютера.</li>
+      <li><b>Настоящие видео.</b> Ссылку на проверенный ролик из Беларуси (БЕЛТА, про фликеры) я добавил в карточку темы 3. Остальные ролики посмотрите заранее и вставьте ссылку сами.</li>
+    </ul>
+  </details>
+
+  <section class="sec">
+    <div class="vgrid" id="vgrid"></div>
+  </section>
+
+  <section class="sec">
+    <h2>Официальные материалы ГАИ</h2>
+    <p class="sub">Эти страницы можно открыть на занятии или использовать как опору для рассказа.</p>
+    <div class="srcs">
+      <a href="https://pravo.by/novosti/obshchestvenno-politicheskie-i-v-oblasti-prava/2019/november/42565/" target="_blank" rel="noopener">«Время стать заметным!»: информационная кампания ГАИ (pravo.by)</a>
+      <a href="https://pravo.by/novosti/obshchestvenno-politicheskie-i-v-oblasti-prava/2019/november/41950/" target="_blank" rel="noopener">ГАИ призывает обозначать себя световозвращающими элементами (pravo.by)</a>
+      <a href="https://pravo.by/novosti/obshchestvenno-politicheskie-i-v-oblasti-prava/2015/september/6101/" target="_blank" rel="noopener">ГАИ напоминает пешеходам о фликерах (pravo.by)</a>
+      <a href="https://www.pdd.by/events/2017-06-21/пдд-для-школьников" target="_blank" rel="noopener">ПДД для школьников (pdd.by)</a>
+    </div>
+  </section>
+
+</main>
+<div id="chrome-bottom"></div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<script src="art.js"></script>
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="video.js"></script>
+</body>
+</html>

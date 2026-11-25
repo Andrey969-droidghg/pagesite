@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Награды · Дорожный патруль</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="chrome-top"></div>
+<main class="wrap">
+
+  <div class="pagehead">
+    <p class="eyebrow">Твой прогресс</p>
+    <h1>Награды</h1>
+    <p class="lead">Удостоверение откроется после пятой станции. Значки дают за разные достижения в игре.</p>
+  </div>
+
+  <section class="sec">
+    <h2>Удостоверение</h2>
+    <div id="cert-host"></div>
+  </section>
+
+  <section class="sec">
+    <h2>Значки</h2>
+    <div class="badges" id="badge-grid"></div>
+    <div class="medals" data-scene="medals"></div>
+  </section>
+
+  <section class="sec">
+    <h2>Прогресс</h2>
+    <div class="stats" id="stats"></div>
+    <div class="row">
+      <button class="btn ghost" id="reset" type="button">Начать заново</button>
+    </div>
+  </section>
+
+</main>
+<div id="chrome-bottom"></div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<script src="art.js"></script>
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="awards.js"></script>
+</body>
+</html>
