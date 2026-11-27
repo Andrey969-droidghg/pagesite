@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Команды · Дорожный патруль</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="chrome-top"></div>
+<main class="wrap">
+
+  <div id="intro">
+    <div class="pagehead">
+      <p class="eyebrow">Для проектора или интерактивной доски</p>
+      <h1>Командная игра</h1>
+      <p class="lead">Команды отвечают по очереди. Верный ответ приносит 10 очков, побеждает команда с наибольшим счётом.</p>
+    </div>
+
+    <details class="howto" style="margin-top:18px" open>
+      <summary>Правила командной игры</summary>
+      <ol>
+        <li><b>Команды.</b> Разделите класс на 2–4 команды, например по рядам. Придумайте названия и впишите их ниже.</li>
+        <li><b>Вопросы.</b> Выберите тему (или все пять) и число вопросов. Вопросы перемешиваются.</li>
+        <li><b>Очерёдность.</b> Первый вопрос отвечает первая команда, второй вторая и так по кругу. Название отвечающей команды написано над вопросом и подсвечено на табло.</li>
+        <li><b>Обсуждение.</b> Команда обсуждает ответ вполголоса. Отвечает один человек, он нажимает на экране. Каждый раз отвечает другой участник.</li>
+        <li><b>Таймер.</b> Если включён, время на ответ ограничено. Когда время вышло, ответ считается неверным.</li>
+        <li><b>Очки.</b> Верный ответ даёт 10 очков. В заданиях на пары и порядок засчитывается только полностью верный ответ.</li>
+        <li><b>Разбор.</b> После каждого ответа на экране появляется объяснение. Прочитайте его вслух, класс запоминает именно это.</li>
+        <li><b>Финал.</b> В конце игры появится таблица результатов. При равенстве очков побеждают все лидеры.</li>
+      </ol>
+    </details>
+  </div>
+
+  <div id="class-host" style="margin-top:24px"></div>
+
+</main>
+<div id="chrome-bottom"></div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<script src="art.js"></script>
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="quiz.js"></script>
+<script src="class.js"></script>
+</body>
+</html>

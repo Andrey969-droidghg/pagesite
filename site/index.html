@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Сайт учителя информатики</title>
+<meta name="description" content="Школьный сайт по информатике: материалы для 5–11 классов, интерактивные проекты, олимпиады, подготовка к ЦТ и вопрос-ответ.">
+<meta name="theme-color" content="#faf8f5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%237f6df2'/%3E%3Cpath d='m24 22-10 10 10 10M40 22l10 10-10 10' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<a class="sr" href="#app">К содержимому</a>
+<header class="header" id="header"></header>
+<main id="app" tabindex="-1"></main>
+<footer class="footer" id="footer"></footer>
+<button class="totop" id="totop" type="button" aria-label="Наверх"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+<dialog class="palette" id="palette" aria-label="Поиск по сайту">
+  <div class="pal-in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="pal-q" type="search" placeholder="Поиск: классы, проекты, вопросы…" autocomplete="off" aria-label="Поиск"></div>
+  <ul class="pal-list" id="pal-list"></ul>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<noscript><p style="padding:40px;text-align:center">Для работы сайта включите JavaScript.</p></noscript>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

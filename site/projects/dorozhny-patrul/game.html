@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Игра · Дорожный патруль</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="chrome-top"></div>
+<main class="wrap">
+
+  <div id="intro">
+    <div class="pagehead">
+      <p class="eyebrow">Одиночная игра</p>
+      <h1>Станции</h1>
+      <p class="lead">Пять станций на пути домой. Проходи по порядку, копи опыт и береги жизни.</p>
+    </div>
+
+    <details class="howto" style="margin-top:18px" open>
+      <summary>Как играть</summary>
+      <ol>
+        <li><b>Позывной.</b> Введи имя или прозвище, оно появится на удостоверении. Это по желанию.</li>
+        <li><b>Станции.</b> Выбери первую станцию. Следующая откроется, когда пройдёшь предыдущую.</li>
+        <li><b>Тип задания</b> написан над каждым вопросом: выбор ответа, «верно или неверно», соединение пар или расстановка по порядку.</li>
+        <li><b>Верный ответ</b> даёт 10 XP. Ещё +5 XP за быстрый ответ и +5 XP, если это третий верный подряд. Бонусы дают только за первое верное решение задания.</li>
+        <li><b>Ошибка</b> отнимает одну жизнь ♥. Когда жизни кончились, станцию нужно пройти заново. XP за верные ответы остаются.</li>
+        <li><b>Звёзды</b> равны оставшимся жизням: три жизни дают три звезды.</li>
+        <li><b>Не уверен?</b> Откройте страницу <a href="learn.html">«Правила»</a>. После ошибки игра подскажет, какую тему повторить.</li>
+      </ol>
+    </details>
+
+    <div class="name-row" style="margin-top:18px">
+      <label for="player-name">Позывной патрульного</label>
+      <input id="player-name" type="text" maxlength="24" placeholder="Например, Алеся" autocomplete="off">
+    </div>
+  </div>
+
+  <div id="stage" style="margin-top:24px"></div>
+
+</main>
+<div id="chrome-bottom"></div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<script src="art.js"></script>
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="quiz.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
